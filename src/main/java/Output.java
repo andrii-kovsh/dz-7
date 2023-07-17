@@ -1,7 +1,7 @@
 public class Output {
         public static void main(String[] args) {
                 SolarSystem chosenPlanet = SolarSystem.MARS;
-                System.out.println("Планета: " + choosePlanet);
+                System.out.println("Планета: " + chosenPlanet);
                 System.out.println("Порядковий номер від сонця: " + chosenPlanet.getOrderFromSun());
                 System.out.println("Відстань від сонця: " + chosenPlanet.getDistanceFromSun() + " млн км");
                 System.out.println("Відстань від попередньої планети: " + chosenPlanet.getDistanceFromPrevious() + " млн км");
