@@ -14,12 +14,15 @@ public enum SolarSystem {
     private final int radius;
     private final SolarSystem previousPlanet;
 
+    private SolarSystem next;
+
     SolarSystem(int prevDistance, int radius, SolarSystem previous) {
         if (previous != null) {
             this.distanceFromPrevious = prevDistance;
             this.distanceFromSun = previous.getDistanceFromSun() + prevDistance;
             this.previousPlanet = previous;
             this.orderFromSun = previous.getOrderFromSun() + 1;
+            this.previousPlanet.next = this;
         } else {
             this.distanceFromPrevious = 0;
             this.distanceFromSun = 46;
@@ -32,18 +35,22 @@ public enum SolarSystem {
     private final int orderFromSun;
 
     public int getOrderFromSun() {
+
         return orderFromSun;
     }
 
     public int getDistanceFromPrevious() {
+
         return distanceFromPrevious;
     }
 
     public int getDistanceFromSun() {
+
         return distanceFromSun;
     }
 
     public int getRadius() {
+
         return radius;
     }
 
@@ -52,10 +59,6 @@ public enum SolarSystem {
     }
 
     public SolarSystem getNextPlanet() {
-        SolarSystem[] planets = SolarSystem.values();
-        if (this.ordinal() < planets.length - 1) {
-            return planets[this.ordinal() + 1];
-        }
-        return null;
+        return next;
     }
 }
